@@ -1,2 +1,5 @@
-# Dependency directory and typings
+# Dependency directory
 node_modules
+
+# IDE Settings
+.idea
