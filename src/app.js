@@ -1,15 +1,16 @@
 $(document).ready(function () {
 
-	var map;
+	var map, google;
 	
 	window.navigator.geolocation.getCurrentPosition(showPosition);
 	setEventListener();
-	setView($($('nav > a')[0]).data('view'));
+	setView($($('nav > a')[2]).data('view'));
 	
 
 	// --------------------------------------------------
 	function setMap(position) {
-		GoogleMapsLoader.load(function(google) {
+		GoogleMapsLoader.load(function(_google) {
+			google = _google;
 			var here = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: here,
@@ -34,6 +35,9 @@ $(document).ready(function () {
 	}
 
 	function setView(viewName){
+		if(viewName === 'map'){
+			google.maps.event.trigger(map, 'resize');
+		}
 		$('nav > a').removeClass('active');
 		$('nav > a[data-view="'+viewName+'"]').addClass('active');
 
