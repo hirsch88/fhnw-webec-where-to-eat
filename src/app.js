@@ -1,28 +1,33 @@
 $(document).ready(function () {
 
-	var map, google;
-	
-	window.navigator.geolocation.getCurrentPosition(showPosition);
+	var map, google, here;
+		
+	// window.navigator.geolocation.getCurrentPosition(showPosition);
 	setEventListener();
-	setView($($('nav > a')[2]).data('view'));
+	setView($($('nav > a')[0]).data('view'));
 	
 
 	// --------------------------------------------------
-	function setMap(position) {
-		GoogleMapsLoader.load(function(_google) {
-			google = _google;
-			var here = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-			map = new google.maps.Map(document.getElementById('map'), {
-				center: here,
-				zoom: 15
-			});
-			console.log(map);
-		});
+	function setSpinner(element) {
+		element.html('<div class="spinner"><i class="fa fa-refresh fa-spin"></i></div>');
 	}
 
-	function showPosition(position) {
-		console.log(position);
-		setMap(position);
+	function setMap() {
+		console.log('setMap');
+		window.navigator.geolocation.getCurrentPosition(loadMap);
+
+		function loadMap(position) {
+			console.log('loadMap', position);
+			GoogleMapsLoader.load(function(_google) {
+				google = _google;
+				here = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: here,
+					zoom: 15
+				});
+				console.log('GoogleMapsLoader', google, here, map);
+			});
+		}
 	}
 
 	function setEventListener() {
@@ -36,7 +41,8 @@ $(document).ready(function () {
 
 	function setView(viewName){
 		if(viewName === 'map'){
-			google.maps.event.trigger(map, 'resize');
+			setSpinner($('#map'));
+			setMap();
 		}
 		$('nav > a').removeClass('active');
 		$('nav > a[data-view="'+viewName+'"]').addClass('active');

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>where-to-eat</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
 
@@ -27,17 +28,17 @@
 
 		<!-- footer navigation -->
 		<nav>
-			<a data-view="map"><span>Where</span></a>
-			<a data-view="list"><span>Who</span></a>
-			<a data-view="form"><span>What</span></a>
+			<a data-view="map"><span><i class="fa fa-map"></i> Where</span></a>
+			<a data-view="list"><span><i class="fa fa-list"></i> Who</span></a>
+			<a data-view="form"><span><i class="fa fa-search"></i> What</span></a>
 		</nav>
 
 	</div><!-- /container -->
 
 	<!-- scripts -->
 	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&v=3"></script>
-	<!-- <script type="text/javascript" src="../node_modules/google-maps/lib/Google.min.js"></script> -->
+	<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&v=3"></script> -->
+	<script type="text/javascript" src="../node_modules/google-maps/lib/Google.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>

@@ -85,3 +85,13 @@ body > div.container > nav > a.active {
 	color: #FFF;
 	border-bottom: 4px solid #FFF;
 }
+
+div.spinner{
+	font-size: 4em;
+	text-align: center;
+	margin-top: 120px;
+}
+
+
+
+
