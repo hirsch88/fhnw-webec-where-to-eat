@@ -10,7 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "font-awesome": "^4.5.0",
-    "google-maps": "^3.2.1",
     "jquery": "^2.2.2"
   }
 }
