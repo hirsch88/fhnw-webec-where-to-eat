@@ -9,36 +9,38 @@
 </head>
 <body>
 
-	<div class="container">
-	
-		<!-- views -->
-		<main>
+<div class="container">
 
-			<section id="form">
-				<h1>Form</h1>
-			</section>
+    <!-- views -->
+    <main>
 
-			<section id="map"></section>
+        <section id="form">
+            <div class="list"></div>
+            <div class="action">
+                <button>Go!</button>
+            </div>
+        </section>
 
-			<section id="list">
-				<h1>List</h1>
-			</section>
+        <section id="map"></section>
 
-		</main>
+        <section id="list">
+            <ol></ol>
+        </section>
 
-		<!-- footer navigation -->
-		<nav>
-			<a data-view="map"><span><i class="fa fa-map"></i> Where</span></a>
-			<a data-view="list"><span><i class="fa fa-list"></i> Who</span></a>
-			<a data-view="form"><span><i class="fa fa-search"></i> What</span></a>
-		</nav>
+    </main>
 
-	</div><!-- /container -->
+    <!-- footer navigation -->
+    <nav>
+        <a data-view="map"><span><i class="fa fa-map"></i> Where</span></a>
+        <a data-view="list"><span><i class="fa fa-list"></i> Who</span></a>
+        <a data-view="form"><span><i class="fa fa-search"></i> What</span></a>
+    </nav>
 
-	<!-- scripts -->
-	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&v=3"></script> -->
-	<script type="text/javascript" src="../node_modules/google-maps/lib/Google.min.js"></script>
-	<script type="text/javascript" src="app.js"></script>
+</div><!-- /container -->
+
+<!-- scripts -->
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&v=3"></script>
+<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
