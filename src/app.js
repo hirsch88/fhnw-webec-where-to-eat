@@ -44,6 +44,23 @@ $(document).ready(function () {
         center: here,
         zoom: 15
       });
+
+      var goldStar = {
+        path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
+        fillColor: 'yellow',
+        fillOpacity: 0.8,
+        scale: 0.1,
+        strokeColor: 'gold',
+        strokeWeight: 2
+      };
+
+      new google.maps.Marker({
+        position: here,
+        icon: goldStar,
+        draggable: false,
+        map: map
+      });
+
       setPlaces();
     }
   }
@@ -52,15 +69,15 @@ $(document).ready(function () {
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
       location: here,
-      radius: 500,
+      radius: 300,
       types: ['restaurant'],
       keyword: selectedFormElement
     }, function (results, status) {
-      results.forEach(function (place) {
+      results.forEach(function (place, idx) {
         new google.maps.Marker({
           map: map,
           position: place.geometry.location,
-          icon: iconUrl
+          label: '' + idx + 1
         });
       });
       generatePlaceList(results);
